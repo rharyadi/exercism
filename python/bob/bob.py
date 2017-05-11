@@ -1,28 +1,26 @@
 def hey(question):
-    response = [ 'Sure.',
-                 'Whoa, chill out!',
-                 'Fine. Be that way!',
-                 'Whatever.' ]
+    response = { 'asking': 'Sure.',
+                 'yelling': 'Whoa, chill out!',
+                 'silent': 'Fine. Be that way!',
+                 'other': 'Whatever.' }
     
     question = question.strip()
     
     # Fine. Be that way!
     if not question:
-        return response[2]
+        return response['silent']
     
     
     # Whoa, chill out!
-    alphacount = sum(1 for c in question if c.isalpha())
-    uppercount = sum(1 for c in question if c.isupper())
-    if uppercount and uppercount == alphacount:
-        return response[1]
+    if question.isupper():
+        return response['yelling']
 
     
     # Sure.
-    if question[-1] == '?':
-        return response[0]
+    if question.endswith('?'):
+        return response['asking']
 
     
     # Whatever
-    return response[3]
+    return response['other']
     
