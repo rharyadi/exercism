@@ -2,7 +2,7 @@ class Allergies(object):
     def __init__(self,n):
         self.n = n % 256
 
-        allergies_list = ['cats',
+        allergen_list = ['cats',
                           'pollen',
                           'chocolate',
                           'tomatoes',
@@ -10,13 +10,14 @@ class Allergies(object):
                           'shellfish',
                           'peanuts',
                           'eggs']
-
+        
+        # Convert allergic score into binary value
         binary = [int(i) for i in bin(self.n)[2:].zfill(8)]
-        self.allergies_dict = dict(zip(allergies_list,binary))
-        self.lst = [a for a in allergies_list if self.allergies_dict[a]]
+        allergen_dict = dict(zip(allergen_list,binary))
+        self.lst = [a for a in allergen_list if allergen_dict[a]]
 
     def is_allergic_to(self,allergic):
-        if self.allergies_dict[allergic]:
+        if allergic in self.lst:
             return True
         return False
 
