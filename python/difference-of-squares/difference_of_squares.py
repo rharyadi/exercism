@@ -12,4 +12,4 @@ def sum_of_squares(n):
     return (2*n3 + 3*n2 + n)/6
 
 def difference(n):
-    return abs(square_of_sum(n) - sum_of_squares(n))
+    return square_of_sum(n) - sum_of_squares(n)
